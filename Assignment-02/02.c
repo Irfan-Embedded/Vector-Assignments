@@ -5,7 +5,7 @@
  */
 
 #include <stdio.h>
-main()
+int main()
 {
 	int i = 2, j = 3, k, l;
 
@@ -16,7 +16,7 @@ main()
 	a = i/j*j;
 	b = j/i*l;
 
-	printf("k : %d\tl : %d\t\na : %f\tb : %f\n",k, l, a, b);
+	printf("k : %d\tl : %d\t\na : %f\tb : %15.3f\n",k, l, a, b);
 }
 
 
