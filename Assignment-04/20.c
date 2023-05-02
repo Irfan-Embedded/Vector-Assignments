@@ -1,6 +1,7 @@
 /*
  *
- * 20. wite a program to set or clear perticular bit of a number.
+ * 19. write a program to find the status of a perticular bit.
+ * 		(weather it is set or clear)
  *
  */
 
@@ -8,42 +9,28 @@
 
 int main()
 {
-	int num, pos;
+	int num,pos;
 
-	printf("Enter any num : ");
+	printf("Enter any number to print it in binary form : ");
 	scanf("%d",&num);
 
-	printf("Bainary form of a given  number is : \n");
-
-	for (int i=31; i >= 0; i--)
+	for(int i = 31; i>=0; i--)
 	{
-		if((num >> i & 1) == 1)
+		if(((num >> i) & 1) == 1)
 			printf(" 1");
 		else
 			printf(" 0");
 	}
 
-	printf("\n");
+	printf("\n\n\n");
 
-	printf("\n Enter the position you want to change the bit : ");
+	printf("Enter the position you want to check\nthe bit is set / clear : ");
 	scanf("%d",&pos);
 
-	if((num >> pos & 1) == 1)
-		num = ((~(1<<pos)) & num);
+	if(((num >> pos) & 1) == 1)
+		printf("Bit is Set\n\n");
 	else
-		num = (num | (1 << pos));
-
-	printf("num after changing the bit : %d\n",num);
-	printf("And its binary is : \n");
-	
-	for (int i=31; i >= 0; i--)
-        {
-                if((num >> i & 1) == 1)
-                        printf(" 1");
-                else
-                        printf(" 0");
-        }
-	printf("\n");
+		printf("Bit is Clear\n\n");
 }
 
 

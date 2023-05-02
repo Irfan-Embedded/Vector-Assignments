@@ -1,7 +1,6 @@
 /*
  *
- * 19. write a program to find the status of a perticular bit.
- * 		(weather it is set or clear)
+ * 19. write a program to reverse the bits of a number
  *
  */
 
@@ -9,28 +8,44 @@
 
 int main()
 {
-	int num,pos;
+	int num, limit = 1, count = 0;
 
-	printf("Enter any number to print it in binary form : ");
+	printf("Enter any number : ");
 	scanf("%d",&num);
 
-	for(int i = 31; i>=0; i--)
+	printf("Binary form of given number is : \n");
+
+	for(int i=31; i>=0; i--)
 	{
-		if(((num >> i) & 1) == 1)
+		if((num >> i & 1) == 1)
 			printf(" 1");
 		else
 			printf(" 0");
 	}
+	printf("\n\n");
 
-	printf("\n\n\n");
+	while(num >= limit ) {
+		limit = limit*2;
+		count++;
+	}
+	printf("limit : %d\n",limit);
 
-	printf("Enter the position you want to check\nthe bit is set / clear : ");
-	scanf("%d",&pos);
+	for(int i = (count - 1); i >= 0; i--)
+	{
+		if((num>>i & 1) == 1)
+			num = (num & (~(1 << i)));
+		else
+			num = (num | (1 << i));
+	}
 
-	if(((num >> pos) & 1) == 1)
-		printf("Bit is Set\n\n");
-	else
-		printf("Bit is Clear\n\n");
+	for(int i=31; i>=0; i--)
+        {
+                if((num >> i & 1) == 1)
+                        printf(" 1");
+                else
+                        printf(" 0");
+        }
+        printf("\n\n");
 }
 
 
